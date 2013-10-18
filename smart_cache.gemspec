@@ -1,9 +1,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-# Maintain your gem's version:
 require "smart_cache/version"
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "smart_cache"
   s.version     = SmartCache::VERSION
@@ -16,7 +14,11 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency "rails", "~> 3.2.14"
+  s.add_dependency "sidekiq"
+  s.add_dependency "redis-activesupport"
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "debugger"
+  s.add_development_dependency "timecop"
+  s.add_development_dependency "rspec-sidekiq"
 end

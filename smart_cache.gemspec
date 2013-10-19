@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "smart_cache/version"
 
 Gem::Specification.new do |s|
-  s.name        = "smart_cache"
+  s.name        = "smart-cache"
   s.version     = SmartCache::VERSION
   s.authors     = ["Justin Grubbs"]
   s.email       = ["justin@jgrubbs.net"]

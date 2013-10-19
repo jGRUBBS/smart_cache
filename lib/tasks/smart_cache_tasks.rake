@@ -5,3 +5,7 @@
 
 
 # build initial caches
+
+namespace :smart_cache do
+
+end

@@ -1,3 +1,7 @@
 = SmartCache
 
+Install: appends helper to ApplicationHelper
+
+    $ rails g smart_cache:install
+
 This project rocks and uses MIT-LICENSE.

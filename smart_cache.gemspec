@@ -1,9 +1,8 @@
 $:.push File.expand_path("../lib", __FILE__)
-
 require "smart_cache/version"
 
 Gem::Specification.new do |s|
-  s.name        = "smart-cache"
+  s.name        = "smart_cache"
   s.version     = SmartCache::VERSION
   s.authors     = ["Justin Grubbs"]
   s.email       = ["justin@jgrubbs.net"]
@@ -12,6 +11,7 @@ Gem::Specification.new do |s|
   s.description = "Let the server wait and not your users."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.require_paths = ["lib"]
 
   s.add_dependency "rails", "~> 3.2.14"
   s.add_dependency "sidekiq"

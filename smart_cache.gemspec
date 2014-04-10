@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2.14"
   s.add_dependency "sidekiq"
-  s.add_dependency "redis-activesupport"
+  s.add_dependency "dalli"
+  # s.add_dependency "redis-activesupport"
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "debugger"

@@ -40,15 +40,15 @@ describe SmartCache::Cache do
         end
       end
 
-      worker = SmartCache::Worker.new
+      worker = SmartCache.processor.new
       worker.perform("asdf", "worker value", 24.hours)
 
       result = @smart_cache.fetch("asdf", expires_in: 1.hour) do
         "ignored value"
       end
 
-      expect(SmartCache::Worker).to be_processed_in :smart_cache
-      expect(SmartCache::Worker).to have(1).jobs
+      expect(SmartCache.processor).to be_processed_in :smart_cache
+      expect(SmartCache.processor).to have(1).jobs
 
       result.should == "worker value"
 

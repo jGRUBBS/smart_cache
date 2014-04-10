@@ -1,13 +1,25 @@
 require "active_support/cache"
 require "sidekiq"
+require "smart_cache/jobs"
 require "smart_cache/cache"
-require "smart_cache/worker"
 require "smart_cache/railtie"
 
 module SmartCache
 
-  def self.cache
-    @cache ||= ActiveSupport::Cache.lookup_store(:redis_store)
+  TIME_PAD = 24.hours
+
+  class << self
+
+    def cache
+      @cache ||= ActiveSupport::Cache.lookup_store(:dalli_store)
+    end
+
+    def processor
+      return SmartCache::Jobs::DelayedJob if defined? ::Delayed::Job
+      return SmartCache::Jobs::Resque     if defined? ::Resque
+      return SmartCache::Jobs::Sidekiq    if defined? ::Sidekiq
+    end
+
   end
 
   module ControllerGlue
